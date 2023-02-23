@@ -1,0 +1,18 @@
+const webhook = new IncomingWebhook(url);
+const createDiscordMessage = (error) => {
+  var embeds = []
+  let message = {
+    "text": "GCP Alerts",
+    "blocks": [
+      {
+      }
+      
+      "mrkdwn": true,
+    "attachments": [
+      {
+        "title": error.incident.condition.displayName,
+        "title_link":  error.incident.url,
+        "fields": [{
+        "title": error.incident.state,
+        "value": error.incident.summary
+      }]
